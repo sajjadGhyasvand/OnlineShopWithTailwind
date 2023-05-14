@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghias Market</title>
+    <link rel="stylesheet" href="/dist/output.css">
+
+</head>
+
+<body class="bg-gray-100 p-0 dark:bg-gray-800 ">
+    <!-- Desktop navbar -->
+    <nav class="bg-white hidden md:block p-4 shadow-lg sticky z-10 top-0 mb-4">
+        <div class="container mx-auto max-w-screen-2xl flex items-center justify-between">
+            <div class=" w-1/2 flex items-center justify-between  ">
+                <ul class="flex items-center justify-between gap-x-2 lg:gap-x-4 ">
+                    <li class="cursor-pointer">
+                        <a href="#">
+                            <span class="text-orange-400 font-black text-2xl ">قیاس</span>
+                            <span class="text-slate-800 font-black text-2xl ">مارکت</span>
+                        </a>
+                    </li>
+                    <li><a class="text-xs lg:text-sm  hover:bg-gray-100 p-2 rounded-md font-medium" href="#">خانه</a></li>
+                    <li><a class="text-xs lg:text-sm hover:bg-gray-100 p-2 rounded-md font-medium" href="#">لپ تاپ</a></li>
+                    <li><a class="text-xs lg:text-sm hover:bg-gray-100 p-2 rounded-md font-medium" href="#">ساعت هوشمند</a></li>
+                    <li><a class="text-xs lg:text-sm hover:bg-gray-100 p-2 rounded-md font-medium" href="#"> تلفن همراه</a></li>
+                </ul>
+            </div>
+            <div class="w-1/2 flex items-center gap-x-2 py-0 justify-between bg-gray-100 rounded-md px-2 mr-2 ">
+                <form action="" class="flex">
+                    <button class="ml-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-slate-800">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                      </svg> 
+                </button>
+
+                    <input type="text" class="text-slate-800 text-sm font-light flex w-full py-2 bg-gray-100 p-0 outline-none " placeholder="جستجوی نام محصول، نام برند، نام مدل و ...">
+                </form>
+
+            </div>
+        </div>
+    </nav>
+    <!-- ==== app bar ====  -->
+    <div class="flex  md:hidden items-center justify-between mt-10 mb-6 px-4 ">
+        <div class="w-7 h-7  ">
+            <img src="/src/img/logo.png" alt="">
+        </div>
+        <div class="text-lg font-bold text-slate-800">ساعت هوشمند</div>
+        <div class="relative">
+            <div x-data="{isOpenMode : false}" class=" mb-10 text-blue-500">
+                <button @click=" isOpenMode = !isOpenMode" class="relative z-10 top-6">
+                    <span class="sun">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                          </svg>                  
+                    </span>
+                    <span class="moon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                          </svg>                  
+                    </span>
+                </button>
+                <div x-show=" isOpenMode === true " class="absolute -right-10 top-12  mt-2 w-24 overflow-hidden rounded-md border border-gray-200 bg-white dark:bg-gray-700 z-50">
+                    <a href="#" data-theme="light" class="theme-switcher block px-4 py-2 text-sm text-slate-800 hover:bg-gray-100 dark:text-white dark:hover:bg-slate-600">light</a>
+                    <a href="#" data-theme="dark" class="theme-switcher block px-4 py-2 text-sm text-slate-800 hover:bg-gray-100 dark:text-white dark:hover:bg-slate-600">dark</a>
+                    <a href="#" data-theme="system" class="theme-switcher block px-4 py-2 text-sm text-slate-800 hover:bg-gray-100 dark:text-white dark:hover:bg-slate-600">system</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div @click="isLight = !isLight" class="w-7 h-7 bg-white shadow-lg flex items-center justify-center rounded">         
+            <svg  x-show="isLight" xmlns="hisOpenModettp://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-2 stroke-slate-800">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+              <svg  x-show="isLight === false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-2 stroke-slate-800">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+              </svg>                
+        </div> -->
+        <div class="w-7 h-7 bg-white shadow-lg flex items-center justify-center rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-2 stroke-slate-800">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+        </div>
+
+    </div>
+    <!-- ==== filter - sort  ====  -->
+    <div class="flex w-full md:hidden items-center justify-between mb-9 px-4 gap-x-4 ">
+        <div class="flex items-center justify-start bg-white shadow-sm rounded p-2  w-1/2">
+            <div class=" ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-red-400 stroke-2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
+                </svg>
+            </div>
+            <div class="font-medium text-sm text-slate-800 mr-2">
+                <span>محبوب ترین </span>
+            </div>
+        </div>
+        <div class="flex items-center justify-start bg-white shadow-sm rounded p-2  w-1/2">
+            <div class=" ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-gray-400 stroke-2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                </svg>
+            </div>
+            <div class="font-medium text-sm text-slate-800 mr-2 ">
+                <span> فیلتر: برند اپل</span>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="//unpkg.com/alpinejs" defer></script>
+<script src="/src/js/theme.js"></script>
+
+</html>
